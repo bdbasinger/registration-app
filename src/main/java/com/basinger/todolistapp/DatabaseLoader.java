@@ -18,13 +18,14 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.repository.save(
-                new Player("Brennan", "","","","","","Software Engineer"));
-                new Player("David", "","","","","","Dentist");
-                new Player("Lacy", "","","","","","Sales");
-                new Player("Meredith", "","","","","","Teacher");
-                new Player("Fran", "","","","","","Nurse");
-                new Player("Jessi", "","","","","","Insurance");
-                new Player("Rusty", "","","","","","Lawyer");
+        this.repository.save(new Player("Brennan", "","","","","","Software Engineer"));
+        this.repository.save(new Player("David", "","","","","","Dentist"));
+        this.repository.save(new Player("Lacy", "","","","","","Sales"));
+        this.repository.save(new Player("Lacy", "","","","","","Sales"));
+        this.repository.save(new Player("Meredith", "","","","","","Teacher"));
+        this.repository.save(new Player("Fran", "","","","","","Nurse"));
+        this.repository.save(new Player("Jessi", "","","","","","Insurance"));
+        this.repository.save(new Player("Rusty", "","","","","","Lawyer"));
+
     }
 }

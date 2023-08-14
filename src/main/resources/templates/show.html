@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List</title>
+    <!-- You can link to a CSS file or include any other metadata here -->
+</head>
+<body>
+
+<div class="container">
+    <h1>Your Todos</h1>
+
+    <!-- Table to display the todos -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Profession</th>
+            <!-- Add other columns as necessary -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through the todos and display them -->
+        <tr th:each="p : ${player}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.firstName}"></td>
+            <td th:text="${p.profession}"></td>
+            <!-- Display other attributes as necessary -->
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+    <!-- You can also add forms to create, update, or delete todos -->
+</div>
+
+</body>
+</html>
