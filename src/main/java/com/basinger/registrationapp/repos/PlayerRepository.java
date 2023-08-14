@@ -4,12 +4,13 @@ import com.basinger.registrationapp.models.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
-    Optional<Player> findPlayerByProfession(String profession);
+    List<Player> findPlayersByProfession(String profession);
     Optional<Player> findPlayerById(Long id);
 
 }
