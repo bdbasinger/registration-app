@@ -1,4 +1,4 @@
-package com.basinger.todolistapp;
+package com.basinger.registrationapp.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

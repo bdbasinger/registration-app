@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Player Registration</title>
+  <link rel="stylesheet" th:href="@{/styles.css}" />
+
+</head>
+<body>
+<div class="container">
+  <h1>Register Player</h1>
+
+  <form th:action="@{/registerPlayer}" th:object="${player}" method="post">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" th:field="*{firstName}" id="firstName" required />
+    </div>
+
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" th:field="*{lastName}" id="lastName" required />
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" th:field="*{email}" id="email" required />
+    </div>
+
+    <div>
+      <label for="city">City:</label>
+      <input type="text" th:field="*{city}" id="city" />
+    </div>
+
+    <div>
+      <label for="state">State:</label>
+      <input type="text" th:field="*{state}" id="state" />
+    </div>
+
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" th:field="*{address}" id="address" />
+    </div>
+
+    <div>
+      <label for="profession">Profession:</label>
+      <input type="text" th:field="*{profession}" id="profession" required />
+    </div>
+
+    <div>
+      <button type="submit">Register</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

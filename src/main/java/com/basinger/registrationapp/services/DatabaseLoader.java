@@ -1,7 +1,9 @@
-package com.basinger.todolistapp;
+package com.basinger.registrationapp.services;
 
 
 
+import com.basinger.registrationapp.models.Player;
+import com.basinger.registrationapp.repos.PlayerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

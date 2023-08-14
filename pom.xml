@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.basinger</groupId>
-	<artifactId>to-do-list-app</artifactId>
+	<artifactId>player-registration-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>to-do-list-app</name>
 	<description>Demo project for Spring Boot</description>

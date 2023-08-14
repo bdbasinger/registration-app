@@ -1,4 +1,4 @@
-package com.basinger.todolistapp;
+package com.basinger.registrationapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
