@@ -19,7 +19,6 @@ public class Player {
     private String city;
     private String state;
     private String address;
-    @Column(nullable = false)
     private String profession;
 
 
@@ -44,12 +43,16 @@ public class Player {
         return Objects.equals(id, player.id) &&
                 Objects.equals(firstName, player.firstName) &&
                 Objects.equals(lastName, player.lastName) &&
-                Objects.equals(email, player.email);
+                Objects.equals(email, player.email) &&
+                Objects.equals(city,player.city) &&
+                Objects.equals(state, player.state) &&
+                Objects.equals(profession, player.profession);
     }
+
+
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, firstName, lastName, email);
     }
 
