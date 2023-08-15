@@ -10,6 +10,12 @@
 
 <h1>Edit Player</h1>
 
+<!--
+
+th:action="@{/update} This is the name of the endpoint path that
+I should have somewhere in my PlayerController method
+-->
+
 <form th:action="@{/update}" th:object="${player}" method="post">
   <input type="hidden" th:field="*{id}" />
 
