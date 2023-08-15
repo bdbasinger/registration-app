@@ -11,6 +11,7 @@ import java.util.Optional;
 public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     List<Player> findPlayersByProfession(String profession);
-    Optional<Player> findPlayerById(Long id);
+    List<Player> findPlayersByCity(String city);
 
+    Optional<Player> findPlayerById(Long id);
 }

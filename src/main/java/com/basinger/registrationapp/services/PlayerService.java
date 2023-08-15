@@ -20,21 +20,18 @@ public class PlayerService {
 
     public List<Player> getAllPlayers() {
         return playerRepository.findAll();
-
     }
 
     public Player getPlayerById(Long id) {
         Optional<Player> player = playerRepository.findPlayerById(id);
-        if (player.isPresent()) {
+        if (player.isPresent())
             return player.get();
-        } else {
+         else
             throw new PlayerException("Player Not Found For Player With ID: " + id);
-        }
     }
 
 
     // The thymeleaf template uses
-
     // <form th:action="@{/savePlayer}" th:object="${player}" method="post">
     // In the thymeleaf template, savePlayer corresponds to @PostMapping("/registerPlayer") endpoint
     // But it "savePlayer
@@ -53,6 +50,53 @@ public class PlayerService {
 
     }
 
+    public List<Player> getPlayersByCity(String city) {
+        List<Player> playerList = playerRepository.findPlayersByCity(city);
+        if (playerList.isEmpty())
+            throw new PlayerException("No players found for city: " + city);
+        else
+            return playerList;
+    }
+
+    public void updatePlayer(Player player) {
+        playerRepository.save(player);
+
+    }
+
+    public void deletePlayer(Long id) {
+        playerRepository.deleteById(id);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

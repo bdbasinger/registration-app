@@ -6,10 +6,13 @@
 
 </head>
 <body>
+<!-- header link-->
+<div th:replace="header :: body"></div>
+
 <div class="container">
   <h1>Register Player</h1>
 
-  <form th:action="@{/registerPlayer}" th:object="${player}" method="post">
+  <form th:action="@{/list/register}" th:object="${player}" method="post">
     <div>
       <label for="firstName">First Name:</label>
       <input type="text" th:field="*{firstName}" id="firstName" required />
@@ -50,5 +53,8 @@
     </div>
   </form>
 </div>
+<!--footer link-->
+<div th:replace="header :: body"></div>
+
 </body>
 </html>
