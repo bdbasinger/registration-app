@@ -122,11 +122,11 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Player{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", description='" + email + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 

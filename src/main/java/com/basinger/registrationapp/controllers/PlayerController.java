@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@RestController is a combination of @Controller and @ResponseBody
 
+// Using @Controller annotation above class declaration
+// (requires @ResponseBody for methods that aren't returning views):
 
 @Controller
 public class PlayerController {
@@ -20,7 +23,6 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-
     @GetMapping("/list")
     public String getAllPlayers(Model model) {
         List<Player> playerList = playerService.getAllPlayers();
@@ -29,11 +31,11 @@ public class PlayerController {
         // This is the name of the html template found in /resources/templates
     }
 
-    @GetMapping("/list/bycity")
+    @ResponseBody
+    @GetMapping("/api/list/bycity")
     public List<Player> getPlayersByCity(@RequestParam String city) {
         return playerService.getPlayersByCity(city);
     }
-
 
     @PostMapping("/update")
     public String updatePlayer(@ModelAttribute Player player, Model model) {
@@ -62,20 +64,69 @@ public class PlayerController {
         return "register";
     }
 
+    /*
+
+    @RequestBody in the method parameters indicates that
+    it expects to receive JSON requests
+    and returns a simple JSON or plain text response
+
+    It's not intended for traditional web form submissions.
+    Traditional web forms typically submit data in a
+    application/x-www-form-urlencoded format rather than as JSON.
+
+    It's intended for API clients or frontend JavaScript frameworks/libraries.
+    For example, if you're using a frontend framework like React, Vue, or Angular,
+    or if you have mobile apps or other third-party applications that need to send player data,
+    they'd send a JSON-formatted POST request to /api/register
+
+    const playerData = {
+    name: "John Doe",
+    // other player fields...
+};
+
+fetch("/api/register", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(playerData)
+})
+.then(response => response.text())
+.then(data => {
+    console.log(data);  // This should log "Player registered successfully."
+})
+.catch(error => {
+    console.error("Error:", error);
+});
+
+
+
+
+
+     */
+    @ResponseBody
+    @PostMapping("/api/register")
+    public Player registerPlayer(@RequestBody Player player) {
+        playerService.savePlayer(player);
+        return player;
+
+    }
+
     @PostMapping("/register")
     public String savePlayer(@ModelAttribute Player player) {
         playerService.savePlayer(player);
         return "redirect:/list";
     }
 
+    @ResponseBody
     @GetMapping("/list/id/{id}")
     //@ResponseBody //This means JSON will be returned
     public Player getPlayerById(@PathVariable Long id) {
         return playerService.getPlayerById(id);
     }
 
-
-    @GetMapping("/list/profession/{profession}")
+    @ResponseBody
+    @GetMapping("/api/list/profession/{profession}")
     //@ResponseBody
     public List<Player> getPlayerByProfession(@PathVariable String profession) {
         return playerService.getPlayersByProfession(profession);

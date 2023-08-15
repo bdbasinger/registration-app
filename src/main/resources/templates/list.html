@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Players</title>
+    <title>Registrants</title>
     <!-- You can link to a CSS file or include any other metadata here -->
     <link rel="stylesheet" th:href="@{/styles.css}" />
 
@@ -10,11 +11,9 @@
 <div th:replace="header :: body"></div>
 
 <div class="container">
-<<<<<<< HEAD:src/main/resources/templates/show.html
     <h1>Registered Players</h1>
-=======
+
     <h1>Registrants</h1>
->>>>>>> add-features:src/main/resources/templates/list.html
 
     <!-- Table to display the Players -->
     <table>
@@ -42,7 +41,14 @@
             <td th:text="${p.state}"></td>
             <td th:text="${p.profession}"></td>
 
-            <td><a th:href="@{'/edit/' + ${p.id}}">Edit</a></td>
+            <td>
+
+                <a th:href="@{'/edit/' + ${p.id}}">Edit</a>
+
+                <a th:href="@{/delete/{id} (id=${p.id})}" class="delete-link" onclick="return confirm('Are you sure you want to delete this player?');">Delete</a>
+
+            </td>
+
 
 
 
