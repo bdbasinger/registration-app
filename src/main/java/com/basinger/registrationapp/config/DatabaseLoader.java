@@ -1,4 +1,4 @@
-package com.basinger.registrationapp.services;
+package com.basinger.registrationapp.config;
 
 
 
